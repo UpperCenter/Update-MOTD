@@ -15,5 +15,5 @@ for jail in ${jails[@]}; do
     out+="$jail,$failed,$totalfailed,$banned,$totalbanned\n"
 done
 
-printf "\nFail2Ban Status:\n"
+printf "\nFail2Ban Statistics:\n"
 printf $out | column -ts $',' | sed -e 's/^/  /'

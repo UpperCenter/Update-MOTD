@@ -2,18 +2,22 @@
 
 declare -a services=(
     "nginx.service"
-    "fail2ban.service"
-    "php7.2-fpm.service"
-    "mysql.service"
-    "cron.service"
+    "mongod.service"
+    "dt-login.service"
+    "dt-admin.service"
+    "dt-game-main.service"
+    "dt-game-ru.service"
+    "dt-game-pg13.service"
 )
 
 declare -a service_name=(
     "Nginx"
-    "Fail 2 Ban"
-    "PHP FPM"
-    "MySQL"
-    "Crons"
+    "MongoDB"
+    "DT Login Server"
+    "DT Admin Server"
+    "DT Main Server"
+    "DT RU Server"
+    "DT PG13 Server"
 )
 
 declare -a service_status=()
