@@ -1,0 +1,51 @@
+#!/bin/bash
+
+declare -a services=(
+    "nginx.service"
+    "fail2ban.service"
+    "php7.2-fpm.service"
+    "mysql.service"
+    "cron.service"
+)
+
+declare -a service_name=(
+    "Nginx"
+    "Fail 2 Ban"
+    "PHP FPM"
+    "MySQL"
+    "Crons"
+)
+
+declare -a service_status=()
+declare -a lengthened_service_name=()
+
+max_length=0
+for i in "${!service_name[@]}"; do
+    if [  "${#service_name[$i]}" -gt ${max_length} ]; then
+      (( max_length=${#service_name[$i]}+2 ))
+    fi
+done
+
+for i in "${!service_name[@]}"; do
+    (( dot_length=max_length-${#service_name[$i]} ))
+    lengthened_service_name[$i]=${service_name[$i]}
+    for (( ; dot_length>0; dot_length-- )); do
+        lengthened_service_name[$i]+="."
+    done
+done
+
+# Get service status
+for i in "${services[@]}"; do
+    service_status+=("$(systemctl is-active "${i}")")
+done
+
+for i in "${!service_status[@]}"
+do
+    if [[ "${service_status[$i]}" == "active" ]]; then
+        line+="  \e[0m${lengthened_service_name[$i]}: \e[32m● ${service_status[$i]}\e[0m\n"
+    else
+        line+="  \e[0m${lengthened_service_name[$i]}: \e[31m▲ ${service_status[$i]}\e[0m\n"
+    fi
+done
+echo -e "\nService Status:"
+echo -e "$line"
