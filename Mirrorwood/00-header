@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+# REQUIREMENTS: figlet lolcat
+## CONFIG
+
+text="Dragon Forest"
+#text="$(hostname -A | cut -d" " -f1)"
+
+## END CONFIG
+
+
+
+/usr/bin/figlet "$text" | /usr/games/lolcat -f
