@@ -4,7 +4,7 @@
 ## CONFIG
 
 certificates=(
-    "/etc/letsencrypt/live/mirrorwood.com/cert.pem"
+    "/etc/letsencrypt/live/uppercenter.co/cert.pem"
 )
 
 certificateNames=(

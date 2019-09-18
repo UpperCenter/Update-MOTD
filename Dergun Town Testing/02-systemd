@@ -3,17 +3,14 @@
 declare -a services=(
     "nginx.service"
     "fail2ban.service"
-    "php7.2-fpm.service"
-    "mysql.service"
-    "cron.service"
+    "dt-beta.service"
 )
 
 declare -a service_name=(
     "Nginx"
     "Fail 2 Ban"
-    "PHP FPM"
-    "MySQL"
-    "Crons"
+    "DT Beta Service"
+
 )
 
 declare -a service_status=()

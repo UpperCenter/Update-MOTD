@@ -3,7 +3,7 @@
 # REQUIREMENTS: figlet lolcat
 ## CONFIG
 
-text="Dragon Forest"
+text="D T Testing"
 #text="$(hostname -A | cut -d" " -f1)"
 
 ## END CONFIG
